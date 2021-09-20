@@ -3,6 +3,6 @@
 Atlikti darbai:
 * sukurta struktūra (vardas, pavardė, namų darbai, egzamino rezultatai)
 * parašoma funkcija, kuri skaičiuoja pažymių medianą
-* sugeneruojami skaičiai. kurie bus naudojami automatiškam balų išrašymui
-* funkcija automatiškai sugeneruojanti pažymius ir funkcija leidžianti patiems rašyti pažymius
+* sugeneruojami skaičiai, kurie bus naudojami automatiškam balų išrašymui
+* funkcija, automatiškai sugeneruojanti pažymius, ir funkcija, leidžianti patiems rašyti pažymius
 * sukurtas duomenų apdorojimas skaičiuojant galutinį balo vidurkį ir medianą
