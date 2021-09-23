@@ -150,7 +150,7 @@ int main()
     for (int i = 0; i < studentu_sk; i++)
     {
         vardu_suvedimas(grupe, i);
-        if (temp == "p" || temp == "P") { suvedami_duomenys(grupe, i); }
+        if (temp == "P") { suvedami_duomenys(grupe, i); }
         else { automatinis_generavimas(grupe, i, 5); }
     }
     spausdinti (grupe, studentu_sk);
