@@ -9,3 +9,8 @@ Atlikti darbai:
 # 0.2 versija
 * pasianudojant 0.1 programa nuskaitomi duomenys iš failo
 * tvarkingai išvesti duomenis
+# 0.3 versija
+* pasianudojant 0.2 programa 
+* jdsakl
+* dajhsdj
+
