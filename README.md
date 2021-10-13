@@ -1,2 +1,2 @@
 # Pirmas-projektas
-Objektinio programavimo užduotys
+Objektinio programavimo užduotys.
