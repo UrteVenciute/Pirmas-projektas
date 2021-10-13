@@ -13,4 +13,9 @@ Atlikti darbai:
 * pasianudojant 0.2 programa 
 * jdsakl
 * dajhsdj
+# 0.4 versija
+* pasianudoj
+* tvar
+* das
+* dasd
 
