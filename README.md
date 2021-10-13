@@ -10,7 +10,7 @@ Atlikti darbai:
 * pasianudojant 0.1 programa nuskaitomi duomenys iš failo
 * tvarkingai išvesti duomenis
 # 0.3 versija
-* pasianudojant 0.2 programa 
-* jdsakl
-* dajhsdj
+* pasianudojant 0.2 programa atliekame kodo reorganizavimą, patikriname ir papildome struct'ūras
+* Sukuriame statines bibliotekas, kuriose aprašome kuriamų komandų aprašus
+* Faile "readfromfile" panaudojau išimčių valdymą, kad patikirintų ar gerai įvedamas failo pavadinimas.
 
