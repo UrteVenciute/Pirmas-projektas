@@ -1,2 +1,0 @@
-# Pirmas-projektas
-Objektinis programavimas
