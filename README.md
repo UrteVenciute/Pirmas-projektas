@@ -10,12 +10,13 @@ Atlikti darbai:
 * pasianudojant 0.1 programa nuskaitomi duomenys iš failo
 * tvarkingai išvesti duomenis
 # 0.3 versija
-* pasianudojant 0.2 programa 
-* jdsakl
-* dajhsdj
+* pasianudojant 0.2 programa atliekame kodo reorganizavimą, patikriname ir papildome struct'ūras
+* sukuriame statines bibliotekas, kuriose aprašome kuriamų komandų aprašus
+* faile "readfromfile" panaudojau išimčių valdymą, kad patikirintų ar gerai įvedamas failo pavadinimas.
 # 0.4 versija
-* pasianudoj
-* tvar
-* das
-* dasd
+* sugeneruojame programą, kuri prašo įvesti studentų skaičių ir pagal tai sukuriamas failas
+* sukurtą failą nuskaito
+* pagal naujai sukurtą failą surušiuojame studentus į nuskriaustas ir protingas
+* surūšiuotus studentus išvedame į du naujus failus
+* atliekame programos greičio analizę:šmatuojame failų kūrimą, duomenų nuskaitymą iš failų, studentų rūšiavimą į dvi grupes, surūšiuotų studentų išvedimą į du naujus failus.
 
