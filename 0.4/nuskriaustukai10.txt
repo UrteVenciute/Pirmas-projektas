@@ -1,0 +1,6 @@
+Vardas3            Pavarde3               3.4
+Vardas4            Pavarde4               4.4
+Vardas6            Pavarde6              4.68
+Vardas7            Pavarde7              3.84
+Vardas8            Pavarde8              2.64
+                                     0
