@@ -20,15 +20,15 @@ using std::setw;
 using std::setprecision;
 
 struct studentas {
-    string vardas, pavarde;
-    vector<float> paz = { 0 };
-    int egz;
-    float gal = 0;
+	string vardas, pavarde;
+	vector<float> paz = { 0 };
+	int egz;
+	float gal = 0;
 };
 
 int sugeneruojami_sakiciai()
 {
-    return rand() % 10 + 1;
+	return rand() % 10 + 1;
 }
 
 vector<int> auto_marks(int how_many_marks)
@@ -41,138 +41,116 @@ vector<int> auto_marks(int how_many_marks)
 	return skaiciai;
 }
 
-
-float galutBalas (vector<int> skaiciai) {
-    studentas grupe;
-    grupe.gal = 0.4 * std::accumulate(skaiciai.begin(), skaiciai.end(), 0) / skaiciai.size() + 0.6 * sugeneruojami_sakiciai();
-    return grupe.gal;
-}
-
-int generavimas(vector<int> pazymiai)
-{
-    int kiek;
-    cout << "Iveskite studentu skaiciu: " << endl;
-    cin >> kiek;
-    string pavadinimas = "Studentai_" + std::to_string(kiek) + ".txt";
-    auto start = std::chrono::high_resolution_clock::now();
-    auto st = start;
-    std::ofstream out_data(pavadinimas);
-    vector<int> skaiciai;
-    studentas grupe;
-    out_data << setw(20) << left << "Vardas"
-        << setw(20) << left << "Pavarde"
-        << setw(20) << left << "Galutinis(vid.)";
-    for (int s = 1; s <= kiek; s = s + 1)
-    {
-        skaiciai = auto_marks(5);
-        out_data << setw(20) << "Vardas" + std::to_string(s) <<
-            setw(20) << "Pavarde" + std::to_string(s) <<
-            setw(18) << galutBalas(skaiciai) << endl;;
-        skaiciai.clear();
-
-    }
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff = end - start;
-    cout << "Failo su " + std::to_string(kiek) + " studentu/-ais kurimas uztruko: " << diff.count() << " s\n";
-
-    return kiek;
-}
-
-void skaityti (vector<studentas>& grupe, int kiek)
-{
-    int student_counter = 0;
-    ifstream fileRead;
-    string pavadinimas = "Studentai_" + std::to_string(kiek) + ".txt";
-    string buff;
-    fileRead.open(pavadinimas);
-    if (fileRead.is_open()) {
-
-        auto start = std::chrono::high_resolution_clock::now();
-        auto st = start;
-        getline(fileRead >> std::ws, buff);
-        while (student_counter < kiek)
-        {
-
-            grupe.resize(grupe.size() + 1);
-            fileRead >> grupe.at(student_counter).vardas;
-            fileRead >> grupe.at(student_counter).pavarde;
-            fileRead >> grupe.at(student_counter).gal;
-            student_counter++;
-        }
-        auto end = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> diff = end - start;
-        cout << "Failo su " + std::to_string(kiek) + " studentu/-ais nuskaitymas uztruko: " << diff.count() << " s\n";
-
-    }
+float galutBalas(vector<int> skaiciai) {
+	studentas grupe;
+	grupe.gal = 0.4 * std::accumulate(skaiciai.begin(), skaiciai.end(), 0) / skaiciai.size() + 0.6 * sugeneruojami_sakiciai();
+	return grupe.gal;
 }
 
 int main()
 {
-	vector<int> skaiciai;
+	for (size_t i = 1000; i <= 100000; i *= 10)
+	{
+		int NumberOfStudents = i;
+		auto start = std::chrono::high_resolution_clock::now();
+		std::string pav;
+		pav = "Studentai" + std::to_string(i) + ".txt";
+		std::ofstream out_data(pav);
+		vector<int> skaiciai;
+		studentas Eil;
+		out_data << setw(20) << left << "Vardas"
+			<< setw(20) << left << "Pavarde"
+			<< setw(20) << left << "Galutinis(vid.)" << endl;
+		for (int s = 1; s < NumberOfStudents; s++) {
+			skaiciai = auto_marks(5);
+			out_data << setw(20) << "Vardas" + std::to_string(s) <<
+				setw(20) << "Pavarde" + std::to_string(s) <<
+				setw(20) << galutBalas(skaiciai) << endl;;
+			skaiciai.clear();
+		}
+		auto End = std::chrono::high_resolution_clock::now();
+		std::chrono::duration<double> diff = End - start;
+		cout << "Failo su " + std::to_string(i) + " studentu/-ais kurimas uztruko: " << diff.count() << " s\n";
 
-	int kiek = generavimas(skaiciai);
-	vector<studentas> studentai;
-	skaityti(studentai, kiek);
-	vector<studentas> protingi;
-	vector<studentas> nuskriaustukai;
-	int nuskr = 0;
-	int prot = 0;
 
-	auto start = std::chrono::high_resolution_clock::now();
-	auto st = start;
-	for (int i = 0; i < kiek; i++) {
-		float paz = 5.00;
-		if (studentai.at(i).gal < paz) {
-			nuskriaustukai.push_back(studentai.at(i));
-			nuskr++;
+		int sum = 0;
+		vector <studentas> grupe1;
+		studentas stud;
+		ifstream fileRead;
+		ifstream ReadFile("Studentai" + std::to_string(i) + ".txt");
+		string buff;
+		fileRead.open(pav);
+		if (fileRead.is_open()) {
+			auto start = std::chrono::high_resolution_clock::now();
+			auto st = start;
+			getline(fileRead >> std::ws, buff);
+			while (sum < i)
+			{
+				grupe1.resize(grupe1.size() + 1);
+				fileRead >> stud.vardas;
+				fileRead >> stud.pavarde;
+				fileRead >> stud.gal;
+				sum++;
+				grupe1.push_back(stud);
+			}
+			auto end = std::chrono::high_resolution_clock::now();
+			std::chrono::duration<double> diff = end - start;
+			cout << "Failo su " + std::to_string(i) + " studentu nuskaitymas uztruko: " << diff.count() << " s\n";
+
+
+			vector<studentas> protingi;
+			vector<studentas>vargsiukai;
+			auto start2 = std::chrono::high_resolution_clock::now();
+			auto StartSorting = std::chrono::high_resolution_clock::now();
+			sort(grupe1.begin(), grupe1.end(), ([](studentas a, studentas b)
+				{
+					return a.gal < b.gal;}));
+			for (int i = 0; i < grupe1.size(); i++) {
+				if (grupe1.at(i).gal < 5.00)
+				{
+					vargsiukai.push_back(grupe1.at(i));
+				}
+				else
+					protingi.push_back(grupe1.at(i));
+			}
+			auto end2 = std::chrono::high_resolution_clock::now();
+			std::chrono::duration<double> diff2 = end2 - start2;
+			auto EndSorting = std::chrono::high_resolution_clock::now();
+			cout << "Studentu rusiavimas " << std::chrono::duration_cast<std::chrono::milliseconds>(EndSorting - StartSorting).count() << " ms." << endl;
+
+
+
+			string failoPav = "Studentai" + to_string(i) + ".txt";
+			auto start3 = std::chrono::high_resolution_clock::now();
+			ofstream protingi_failas("protingi" + failoPav);
+			protingi_failas << setw(20) << left << "Pavarde" << setw(20) << left << "Vardas" << setw(20) << left << "Galutinis (Vid.)" << endl;
+			protingi_failas << "-------------------------------------------------------------------------" << endl;
+			for (int ii = 0; ii < protingi.size(); ii++)
+			{
+				protingi_failas << setw(20) << left << protingi.at(ii).pavarde << setw(20) << left << protingi.at(ii).vardas << setw(20) << left << fixed << setprecision(2) << protingi.at(ii).gal << endl;
+			}
+			protingi_failas.close();
+			auto end3 = std::chrono::high_resolution_clock::now();
+			std::chrono::duration<double> diff3 = end3 - start3;
+			std::cout << "Failo isvedimas su " + std::to_string(i) + " studentais  i protigus uztruko : " << diff3.count() << " s\n";
+
+
+
+			auto start4 = std::chrono::high_resolution_clock::now();
+			ofstream vargsiukai_failas("vargsiukai" + failoPav);
+			vargsiukai_failas << setw(20) << left << "Pavarde" << setw(20) << left << "Vardas" << setw(20) << left << "Galutinis (Vid.)" << endl;
+			vargsiukai_failas << "-------------------------------------------------------------------------" << endl;
+			for (int ii = 0; ii < vargsiukai.size(); ii++)
+			{
+				vargsiukai_failas << setw(20) << left << vargsiukai.at(ii).pavarde << setw(20) << left << vargsiukai.at(ii).vardas << setw(20) << left << fixed << setprecision(2) << vargsiukai.at(ii).gal << endl;
+			}
+			vargsiukai_failas.close();
+			auto end4 = std::chrono::high_resolution_clock::now();
+			std::chrono::duration<double> diff4 = end4- start4;
+			std::cout << "Failo isvedimas su " + std::to_string(i) + " studentais  i vargsiukus uztruko : " << diff4.count() << " s\n";
 		}
 	}
-	for (int j = 0; j < kiek; j++) {
-		float paz = 5.00;
-		if (studentai.at(j).gal >= paz) {
-			protingi.push_back(studentai.at(j));
-			prot++;
-		}
-	}
-	auto end = std::chrono::high_resolution_clock::now();
-	std::chrono::duration<double> diff = end - start;
-	cout << "Failo rusiavimas su " + std::to_string(kiek) + " studentais i dvi grupes uztruko : " << diff.count() << " s\n";
-
-
-
-	std::string pav;
-	pav = "nuskriaustukai" + std::to_string(kiek) + ".txt";
-	std::ofstream nuskr_failas(pav);
-	auto start1 = std::chrono::high_resolution_clock::now();
-	auto st1 = start1;
-	for (int i = 0; i < kiek; i++) {
-
-		float paz = 5.00;
-		if (studentai.at(i).gal < paz) {
-			nuskr_failas << studentai.at(i).vardas << setw(20) << studentai.at(i).pavarde << setw(18) << studentai.at(i).gal <<endl;
-		}
-
-	}
-	auto end1 = std::chrono::high_resolution_clock::now();
-	std::chrono::duration<double> diff1 = end1 - start1;
-	cout << "Failo isvedimas su " + std::to_string(kiek) + " studentais  i nuskriaustukus uztruko : " << diff1.count() << " s\n";
-
-	pav = "protingi_" + std::to_string(kiek) + ".txt";
-	std::ofstream prot_failas(pav);
-	auto start2 = std::chrono::high_resolution_clock::now();
-	auto st2 = start2;
-	for (int j = 0; j < kiek; j++) {
-		float paz = 5.00;
-		if (studentai.at(j).gal >= paz) {
-			prot_failas << studentai.at(j).vardas << setw(20) << studentai.at(j).pavarde << setw(18) << studentai.at(j).gal << endl;
-		}
-	}
-	auto end2 = std::chrono::high_resolution_clock::now();
-	std::chrono::duration<double> diff2 = end2 - start2;
-	std::cout << "Failo isvedimas su " + std::to_string(kiek) + " studentais  i protingus uztruko : " << diff2.count() << " s\n";
-
 }
-
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
