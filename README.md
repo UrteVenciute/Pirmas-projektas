@@ -19,4 +19,5 @@ Atlikti darbai:
 * pagal naujai sukurtą failą surušiuojame studentus į nuskriaustas ir protingas
 * surūšiuotus studentus išvedame į du naujus failus
 * atliekame programos greičio analizę:šmatuojame failų kūrimą, duomenų nuskaitymą iš failų, studentų rūšiavimą į dvi grupes, surūšiuotų studentų išvedimą į du naujus failus.
+![2021-10-29](https://user-images.githubusercontent.com/90273563/139396754-b79e5c83-1418-44a2-a34c-52dd36a81f12.png)
 
