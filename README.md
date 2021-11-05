@@ -24,5 +24,5 @@ Atlikti darbai:
 * konteinerių testavimas
 * išmatuojame veikimo spartą: duomenų nuskaitymą iš failų ir studentų rūšiąvimą į dvi grupes
 * palagynam spartą naudojant vector (0.4 versijoje), o šioje versijoje list
-* 
-* testavimo paremetrai:CPU, RAM, HDD (magnetinis, SSD)
+* ![2021-11-05 (1)](https://user-images.githubusercontent.com/90273563/140542587-b93de222-d6e4-419f-a31a-e184f4aea33c.png)
+* testavimo paremetrai:CPU-Intel(R) Core(TM) i3-7100U CPU @ 2.40GHz   2.40 GHz, įdiegta RAM-8,00 GB, HDD- 932 GB
