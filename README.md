@@ -19,10 +19,10 @@ Atlikti darbai:
 * pagal naujai sukurtą failą surušiuojame studentus į nuskriaustas ir protingas
 * surūšiuotus studentus išvedame į du naujus failus
 * atliekame programos greičio analizę:šmatuojame failų kūrimą, duomenų nuskaitymą iš failų, studentų rūšiavimą į dvi grupes, surūšiuotų studentų išvedimą į du naujus failus.
-![2021-11-05](https://user-images.githubusercontent.com/90273563/140485575-2ae57a52-7d2e-478a-91d1-438172676c82.png)
+![04](https://user-images.githubusercontent.com/90273563/142179916-dece84a2-0384-440d-be6c-ba6c5358c030.png)
 # 0.5 versija
 * konteinerių testavimas
 * išmatuojame veikimo spartą: duomenų nuskaitymą iš failų ir studentų rūšiąvimą į dvi grupes
 * palagynam spartą naudojant vector (0.4 versijoje), o šioje versijoje list
-* ![2021-11-05 (1)](https://user-images.githubusercontent.com/90273563/140542587-b93de222-d6e4-419f-a31a-e184f4aea33c.png)
+* ![055](https://user-images.githubusercontent.com/90273563/142179950-38b4d8a4-aa7a-4d13-bac4-dece1625b448.png)
 * testavimo paremetrai:CPU-Intel(R) Core(TM) i3-7100U CPU @ 2.40GHz   2.40 GHz, įdiegta RAM-8,00 GB, HDD- 932 GB
