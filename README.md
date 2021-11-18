@@ -27,5 +27,5 @@ Atlikti darbai:
 * ![055](https://user-images.githubusercontent.com/90273563/142179950-38b4d8a4-aa7a-4d13-bac4-dece1625b448.png)
 * testavimo paremetrai:CPU-Intel(R) Core(TM) i3-7100U CPU @ 2.40GHz   2.40 GHz, įdiegta RAM-8,00 GB, HDD- 932 GB
 # 1.0 versija
-***1 strategija
+1 strategija
 * Bendro studentų konteinerio (vector ir list) skaidymas panaudojant tik vieną naują konteinerį: "vargšiukai". Tokiu būdu, jei studentas yra vargšiukas, jį turime perkeliame į naująjį "vargšiukų" konteinerį ir ištriname iš bendro studentai konteinerio. Po šio žingsnio studentai konteineryje liks vien tik kietiakai. Atminties atveju tai efektyviau.
