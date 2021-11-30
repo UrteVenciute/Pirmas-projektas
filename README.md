@@ -29,3 +29,4 @@ Atlikti darbai:
 # 1.0 versija
 1 strategija
 * Bendro studentų konteinerio (vector ir list) skaidymas panaudojant tik vieną naują konteinerį: "vargšiukai". Tokiu būdu, jei studentas yra vargšiukas, jį turime perkeliame į naująjį "vargšiukų" konteinerį ir ištriname iš bendro studentai konteinerio. Po šio žingsnio studentai konteineryje liks vien tik kietiakai. Atminties atveju tai efektyviau.
+* Atliekame pirmą ir antrą strategijas ir išvedame jų spartą.
