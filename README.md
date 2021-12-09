@@ -32,4 +32,5 @@ Atlikti darbai:
 * Atliekame pirmą ir antrą strategijas ir išvedame jų spartą.
 * Įdiegimo instrukcija: CMake konfigūravimas sukuria projekto kūrimo sistemą. Tai prilygsta cmake.exe iškvietimui iš komandinės eilutės. „Visual Studio“ naudoja CMake konfigūracijos failą, kad paskatintų CMake generavimą ir kūrimą. Kai atliekame reikšmingus CMake konfigūracijos failo arba CMakeLists.txt failo pakeitimus, „Visual Studio“ automatiškai vykdo CMake konfigūravimo veiksmą. Galite rankiniu būdu iškviesti konfigūraciją įrankių juostoje pasirinkę Projektas > Konfigūruoti talpyklą. Taip pat galite pakeisti konfigūracijos nuostatas skiltyje Įrankiai > Parinktys > CMake > Bendra.
 * 2 strategijai. Programos efektyvumą pastiprinau su algoritmais: std::partition ir std::remove_if
-![2021-12-02 (5)](https://user-images.githubusercontent.com/90273563/144511232-c34e6c22-bf1a-4e54-a02d-d504ec106d41.png)
+![10](https://user-images.githubusercontent.com/90273563/145468679-c62b920c-b73c-4a41-867c-56532f9e4f95.png)
+
