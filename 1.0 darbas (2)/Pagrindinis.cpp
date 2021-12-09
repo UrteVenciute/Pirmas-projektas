@@ -30,45 +30,48 @@ vector<int> auto_marks(int how_many_marks)
     }
     return skaiciai;
 }
-/*
+
 float galutBalas(vector<int> skaiciai)
 {
     studentas grupe;
     grupe.galutinis_vidurkis = 0.4 * std::accumulate(skaiciai.begin(), skaiciai.end(), 0) / skaiciai.size() + 0.6 * sugeneruojami_sakiciai();
     return grupe.galutinis_vidurkis;
 }
-*/
+
+
 void failuKurimas(vector <int>& v1, int& ndKiek)
 {
-    string failoPav;
+    string pav;
     double pazymys;
-    std::stringstream ss;
+    std::stringstream out_data;
     for (int i = 0; i < (v1.size()); i++)
     {
         auto start = std::chrono::high_resolution_clock::now();
-        failoPav = "Studentai " + to_string(v1.at(i)) + ".txt";
-        ofstream isvedimas(failoPav);
-
-        ss << setw(20) << left << "Vardas"
-            << setw(20) << left << "Pavarde"
-            << setw(20) << left << "Galutinis(vid.)" << endl;
-        for (int k = 0; k < v1.at(i); k++) {
-            ss << setw(20) << "Vardas" + std::to_string(k + 1) <<
-                setw(20) << "Pavarde" + std::to_string(k + 1);
-            for (int sum = 0; sum < ndKiek; sum++)
-            {
-                pazymys = rand() % 10 + 1;
-                ss << setw(10) << left << pazymys <<endl;
-            }
-            pazymys = rand() % 10 + 1;
-            ss << setw(10) << left << pazymys << endl;
+        pav = "Studentai " + to_string(v1.at(i)) + ".txt";
+        std::ofstream isvedimas(pav);
+        vector<int> skaiciai;
+        studentas Eil;
+        out_data << setw(20) << left << "Vardas"
+            << setw(20) << left << "Pavarde";
+        for (int i = 0; i < 5; i++)
+            out_data << setw(20) << right << "ND" << i + 1;
+        out_data << setw(20) << right << "Galutinis(vid.)" << endl;
+        for (int s = 1; s < v1.at(i); s++) {
+            skaiciai = auto_marks(5);
+            out_data << left << setw(20) << "Vardas" + std::to_string(s) << left <<
+                setw(20) << "Pavarde" + std::to_string(s);
+            for (int i = 0; i < 5; i++)
+                out_data << setw(20) << right << sugeneruojami_sakiciai();
+            out_data << setw(20) << right << sugeneruojami_sakiciai() << endl;
+            skaiciai.clear();
         }
-        isvedimas << ss.str();
+        isvedimas << out_data.str();
         isvedimas.close();
 
-        auto end = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> diff = end - start;
-        cout << v1.at(i) << " elementu kurimas truko: " << diff.count() << " s" << endl;
+        auto End = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> diff = End - start;
+
+        cout << v1.at(i) << " elementu kurimas uztruko: " << diff.count() << " s" << endl;
     }
 }
 
@@ -122,24 +125,25 @@ void failoNuskaitymas_list(list <studentas>& grupe1, list <studentas>& grupe2, i
 {
     double temp;
     int i = 0;
-    std::stringstream ss;
-    string failoPav = "Studentai " + to_string(v1) + ".txt";
-    ifstream nuskaitymas(failoPav);
+    std::stringstream out_data;
+    string pav = "Studentai " + to_string(v1) + ".txt";
+    ifstream nuskaitymas(pav);
     nuskaitymas.ignore(1000, '\n');
-    ss << nuskaitymas.rdbuf();
-
+    out_data << nuskaitymas.rdbuf();
     while (i < v1)
     {
         studentas stu;
-        ss >> stu.vardas >> stu.pavarde;
+        out_data >> stu.vardas >> stu.pavarde;
         stu.paz.reserve(ndKiek);
-        for (int k = 0; k < ndKiek; k++)
+
+        for (int i = 0; i < 5; i++)
         {
-            ss >> temp;
+            out_data >> temp;
             stu.paz.push_back(temp);
         }
 
-        ss >> stu.egz;
+        out_data >> stu.egz;
+
         double vid = vidurkis(stu);
         stu.galutinis_vidurkis = 0.4 * vid + 0.6 * stu.egz;
 
@@ -148,7 +152,6 @@ void failoNuskaitymas_list(list <studentas>& grupe1, list <studentas>& grupe2, i
         stu.paz.clear();
         i++;
     }
-    nuskaitymas.close();
 }
 
 
@@ -156,23 +159,25 @@ void failoNuskaitymas(vector <studentas>& grupe1, vector <studentas>& grupe2, in
 {
     double temp;
     int i = 0;
-    string failoPav = "Studentai " + to_string(v1) + ".txt";
-    ifstream nuskaitymas(failoPav);
-    std::stringstream ss;
+    std::stringstream out_data;
+    string pav = "Studentai " + to_string(v1) + ".txt";
+    ifstream nuskaitymas(pav);
     nuskaitymas.ignore(1000, '\n');
-    ss << nuskaitymas.rdbuf();
+    out_data << nuskaitymas.rdbuf();
     while (i < v1)
     {
         studentas stu;
-        ss >> stu.vardas >> stu.pavarde;
+        out_data >> stu.vardas >> stu.pavarde;
         stu.paz.reserve(ndKiek);
-        for (int k = 0; k < ndKiek; k++)
+
+        for (int i = 0; i < 5; i++)
         {
-            ss >> temp;
+            out_data >> temp;
             stu.paz.push_back(temp);
         }
 
-        ss >> stu.egz;
+        out_data >> stu.egz;
+
         double vid = vidurkis(stu);
         stu.galutinis_vidurkis = 0.4 * vid + 0.6 * stu.egz;
 
@@ -181,7 +186,6 @@ void failoNuskaitymas(vector <studentas>& grupe1, vector <studentas>& grupe2, in
         stu.paz.clear();
         i++;
     }
-    nuskaitymas.close();
 }
 
 void rusiavimas1(vector <studentas>& grupe_vector, list <studentas>& grupe_list, vector <studentas>& protingi_vector, vector <studentas>& vargsiukai_vector, list <studentas>& protingi_list, list <studentas>& vargsiukai_list, vector <double>& time_vector, vector<double>& time_list, char& atsakymas)
