@@ -11,8 +11,6 @@
 #include <sstream>
 #include <chrono>
 #include <list>
-#include <numeric>
-using namespace std;
 using std::cin;
 using std::cout;
 using std::endl;
@@ -30,7 +28,8 @@ using std::ofstream;
 using std::stringstream;
 using std::to_string;
 using std::list;
-
+#include <numeric>
+using namespace std;
 
 struct studentas
 {

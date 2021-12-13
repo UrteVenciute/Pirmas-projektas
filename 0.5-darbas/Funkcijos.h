@@ -35,7 +35,6 @@ using std::list;
 
 
 double vidurkis(studentas& s);
-
 void failuKurimas(vector <int>& v1, int& ndKiek);
 void darbasSuFailu(vector <int>& v1, int& ndKiek, char& atsakymas);
 void failoNuskaitymas(vector <studentas>& grupe1, int& v1, vector <double>& laikas, int& ndKiek);
