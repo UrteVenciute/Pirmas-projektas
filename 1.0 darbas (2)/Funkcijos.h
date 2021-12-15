@@ -1,5 +1,5 @@
 #pragma once
-#include "Spausdinimas.h"
+#include "spausdinimas.h"
 #include "Studentas.h"
 #include <iostream>
 #include <iomanip> 
@@ -34,10 +34,11 @@ using std::list;
 
 
 double vidurkis(studentas& s);
+int uzklausakiekpaz();
+void darbasSuFailu(vector <int>& v1, char& atsakymas);
 
-void failuKurimas(vector <int>& v1, int& ndKiek);
-void darbasSuFailu(vector <int>& v1, int& ndKiek, char& atsakymas);
-void failoNuskaitymas(vector <studentas>& grupe1, vector <studentas>& grupe2, int& v1, int& ndKiek);
-void failoNuskaitymas_list(list <studentas>& grupe1, list <studentas>& grupe2, int& v1, int& ndKiek);
-void rusiavimas1(vector <studentas>& grupe_vector, list <studentas>& grupe_list, vector <studentas>& protingi_vector, vector <studentas>& vargsiukai_vector, list <studentas>& protingi_list, list <studentas>& vargsiukai_list, vector <double>& time_vector, vector<double>& time_list, char& atsakymas);
-void rusiavimas2(vector <studentas>& grupe_vector, list <studentas>& grupe_list, vector <studentas>& vargsiukai_vector_2, list <studentas>& vargsiukai_list_2, vector <double>& time_vector, vector<double>& time_list, char& atsakymas);
+void failoNuskaitymas_list(list <studentas>& grupe1, int& v1);
+void failoNuskaitymas(vector <studentas>& grupe1, int& v1);
+void rusiavimasVector(vector <studentas>& grupe_vector, vector <studentas>& protingi_vector, vector <studentas>& vargsiukai_vector, vector <double>& laikas_vector, char& atsakymas);
+void rusiavimasList(list <studentas>& grupe_list, list <studentas>& protingi_list, list <studentas>& vargsiukai_list, vector<double>& laikas_list, char& atsakymas);
+void rusiavimas2(vector <studentas>& grupe_vector, list <studentas>& grupe_list, vector <studentas>& vargsiukai_vector_2, list <studentas>& vargsiukai_list_2, vector <double>& time_vector, vector<double>& time_list, char& atsakymas)

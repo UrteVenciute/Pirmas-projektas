@@ -33,6 +33,7 @@ using std::to_string;
 using std::list;
 using std::advance;
 
+
 struct studentas
 {
     string vardas, pavarde;
