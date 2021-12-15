@@ -9,12 +9,12 @@ int main()
 {
     char ats;
     int namuDarbuSkaicius;
-    vector <int> v = { 1000, 10000, 100000, 1000000, 10000000 };
+    namuDarbuSkaicius = uzklausa_kiekNdYra();
+    vector <int> v = { 10000, 100000, 1000000 };
     cout << "\n";
-    failuKurimas(v, namuDarbuSkaicius);
-    cout << "\n";
-    darbasSuFailu(v, namuDarbuSkaicius, ats);
+    darbasSuFailu(v, ats);
 }
+
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
