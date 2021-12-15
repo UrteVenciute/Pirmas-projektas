@@ -9,7 +9,7 @@ int main()
 {
     char ats;
     int namuDarbuSkaicius;
-    namuDarbuSkaicius = uzklausa_kiekNdYra();
+    namuDarbuSkaicius = uzklausakiekPaz();
     vector <int> v = { 10000, 100000, 1000000 };
     cout << "\n";
     darbasSuFailu(v, ats);
