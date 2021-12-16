@@ -1,7 +1,9 @@
-#include "Studentas.h"
 #include "Funkcijos.h"
+#include "Studentas.h"
+#include <sstream>
 
-double vidurkis(studentas& s){
+
+double vidurkis(studentas& s) {
     double sum = 0.;
     double kiekis = 0.;
     double vid = 0.;
@@ -17,18 +19,19 @@ double vidurkis(studentas& s){
 
 int uzklausakiekpaz()
 {
-    int ndSkaicius;
-    cout << "Iveskite, kiek bus namu darbu (1-10)" << endl;
-    cin >> ndSkaicius;
-    while (cin.fail() || ndSkaicius < 1 || ndSkaicius > 10)
+    int pazSkaicius;
+    cout << "Namu darbu skaicius" << endl;
+    cin >> pazSkaicius;
+    while (cin.fail() || pazSkaicius < 1 || pazSkaicius > 10)
     {
         cin.clear();
         cout << "Namu darbu skaicius yra netinkamas, iveskite skaiciu didesni uz 0" << endl;
         cin.ignore(256, '\n');
-        cin >> ndSkaicius;
+        cin >> pazSkaicius;
     }
-    return ndSkaicius;
+    return pazSkaicius;
 }
+
 
 void darbasSuFailu(vector <int>& v1, char& atsakymas)
 {
@@ -49,13 +52,13 @@ void darbasSuFailu(vector <int>& v1, char& atsakymas)
     string pavV = "Vargsiukai";
 
 
-    cout << setw(46) << left << "| Atliktas darbas " << setw(25) << left << "| Laikas (s) su vektoriu " << setw(21) << left << "| Laikas (s) su list " << endl;
+    cout << setw(46) << left << "Atliktas darbas " << setw(25) << left << "| Laikas su vektoriu " << setw(21) << left << "| Laikas su list " << endl;
     cout << "-------------------------------------------------------------------------------------------" << endl;
 
     for (int i = 0; i < (v1.size()); i++)
     {
-        laikas_vector.reserve(3);
-        laikas_list.reserve(3);
+        laikas_vector.reserve(4);
+        laikas_list.reserve(4);
 
         auto start = std::chrono::high_resolution_clock::now();
         failoNuskaitymas(grupe_vector, v1.at(i));
@@ -69,11 +72,11 @@ void darbasSuFailu(vector <int>& v1, char& atsakymas)
         std::chrono::duration<double> diff1 = end1 - start1;
         laikas_list.push_back(diff1.count());
 
-        int vieta = 40 - i;
+        int o = 40 - i;
 
-        cout << "| " << v1.at(i) << setw(vieta) << " studentu nuskaitymas " << "| " << setw(23) << left << laikas_vector.at(0) << "| " << setw(19) << left << laikas_list.at(0) << endl;
+        cout <<  v1.at(i) << setw(o) << " studentu nuskaitymas " << "| " << setw(23) << left << laikas_vector.at(0) << "| " << setw(19) << left << laikas_list.at(0) << endl;
 
-
+        /*
         rusiavimasVector(grupe_vector, protingi_vector, vargsiukai_vector, laikas_vector, atsakymas);
 
         spausdinimas(v1.at(i), atsakymas, protingi_vector, pavP);
@@ -85,34 +88,39 @@ void darbasSuFailu(vector <int>& v1, char& atsakymas)
 
         rusiavimasList(grupe_list, protingi_list, vargsiukai_list, laikas_list, atsakymas);
 
-        cout << "| " << v1.at(i) << setw(vieta) << " studentu surusiavimas " << "| " << setw(23) << left << laikas_vector.at(1) << "| " << setw(19) << left << laikas_list.at(1) << endl;
-
+        cout <<  v1.at(i) << setw(vieta) << " studentu surusiavimas 1 versija " << "| " << setw(23) << left << laikas_vector.at(1) << "| " << setw(19) << left << laikas_list.at(1) << endl;
 
         spausdinimas(v1.at(i), atsakymas, protingi_list, pavP);
         spausdinimas(v1.at(i), atsakymas, vargsiukai_list, pavV);
-
 
         grupe_list.clear();
         protingi_list.clear();
         vargsiukai_list.clear();
         laikas_vector.clear();
         laikas_list.clear();
-
+        */
+        
         failoNuskaitymas(grupe_vector1, v1.at(i));
         failoNuskaitymas_list(grupe_list1, v1.at(i));
+        rusiavimasVector2(grupe_vector1, vargsiukai_vector1, laikas_vector, atsakymas);
 
-        rusiavimas2(grupe_vector1, grupe_list1, vargsiukai_vector1, vargsiukai_list1, laikas_vector, laikas_list, atsakymas);
+        spausdinimas(v1.at(i), atsakymas, vargsiukai_vector1, pavV);
+     
+        grupe_vector1.clear();
+        vargsiukai_vector1.clear();
 
-        cout << v1.at(i) << " studentu surusiavimas 2 strategija " << " " << setw(23) << left << laikas_vector.at(2) << " " << setw(19) << left << laikas_list.at(2) << endl;
+        rusiavimasList2( grupe_list1, vargsiukai_list1, laikas_list, atsakymas);
+        
+        cout  << v1.at(i) << setw(o) << " studentu surusiavimas 2 versija " << "| " << setw(23) << left << laikas_vector.at(1) << "| " << setw(19) << left << laikas_list.at(1) << endl;
+
+        spausdinimas(v1.at(i), atsakymas, vargsiukai_list1, pavV);
 
         grupe_list1.clear();
-        grupe_vector1.clear();
         vargsiukai_list1.clear();
-        vargsiukai_vector1.clear();
         laikas_vector.clear();
         laikas_list.clear();
+        
     }
-
 }
 
 void failoNuskaitymas_list(list <studentas>& grupe1, int& v1)
@@ -122,26 +130,26 @@ void failoNuskaitymas_list(list <studentas>& grupe1, int& v1)
     int i = 0;
     std::stringstream out_data;
     int zodziuSk = 0;
-    string word;
+    string zodis;
 
 
     string pav = "Studentai " + to_string(v1) + ".txt";
     ifstream nuskaitymas(pav);
     getline(nuskaitymas, temp2);
     stringstream s(temp2);
-    while (s >> word)
+    while (s >> zodis)
     {
         zodziuSk++;
     }
-    int ndKiek = zodziuSk - 3;
+    int pazKiek = zodziuSk - 3;
     out_data << nuskaitymas.rdbuf();
     while (i < v1)
     {
         studentas stu;
         out_data >> stu.vardas >> stu.pavarde;
-        stu.paz.reserve(ndKiek);
+        stu.paz.reserve(pazKiek);
 
-        for (int k = 0; k < (ndKiek); k++)
+        for (int k = 0; k < (pazKiek); k++)
         {
             out_data >> temp;
             stu.paz.push_back(temp);
@@ -166,26 +174,26 @@ void failoNuskaitymas(vector <studentas>& grupe1, int& v1)
     int i = 0;
     std::stringstream out_data;
     int zodziuSk = 0;
-    string word;
+    string zodis;
+
 
     string pav = "Studentai " + to_string(v1) + ".txt";
     ifstream nuskaitymas(pav);
     getline(nuskaitymas, temp2);
     stringstream s(temp2);
-    while (s >> word)
+    while (s >> zodis)
     {
         zodziuSk++;
     }
-    int ndKiek = zodziuSk - 3;
+    int pazKiek = zodziuSk - 3;
     out_data << nuskaitymas.rdbuf();
     while (i < v1)
     {
         studentas stu;
         out_data >> stu.vardas >> stu.pavarde;
-        stu.paz.reserve(ndKiek);
+        stu.paz.reserve(pazKiek);
 
-
-        for (int k = 0; k < (ndKiek); k++)
+        for (int k = 0; k < (pazKiek); k++)
         {
             out_data >> temp;
             stu.paz.push_back(temp);
@@ -244,40 +252,59 @@ void rusiavimasList(list <studentas>& grupe_list, list <studentas>& protingi_lis
     laikas_list.push_back(diff1.count());
 }
 
-void rusiavimas2(vector <studentas>& grupe_vector, list <studentas>& grupe_list, vector <studentas>& vargsiukai_vector_2, list <studentas>& vargsiukai_list_2, vector <double>& time_vector, vector<double>& time_list, char& atsakymas)
+
+void rusiavimasVector2(vector <studentas>& grupe_vector, vector <studentas>& vargsiukai_vector1, vector <double>& laikas_vector, char& atsakymas)
 {
     auto start = std::chrono::high_resolution_clock::now();
-    vector<studentas>::iterator it1;
+    vector<studentas>::iterator it;
+
     std::partition(grupe_vector.begin(), grupe_vector.end(), [](studentas a)
         {
-            return a.galutinis_vidurkis < 5;
+            return a.galutinis_vidurkis > 5;
         });
+
     auto itt = std::partition_point(grupe_vector.begin(), grupe_vector.end(), [](studentas a)
         {
-            return a.galutinis_vidurkis < 5;
+            return a.galutinis_vidurkis > 5;
         });
-    for (it1 = grupe_vector.begin(); it1 != itt; it1++)
+
+    for (it = itt; it != grupe_vector.end(); it++)
     {
-        vargsiukai_vector_2.push_back(*it1);
+        vargsiukai_vector1.push_back(*it);
     }
-    grupe_vector.erase(std::remove_if(grupe_vector.begin(), grupe_vector.end(), [](studentas a) {return (a.galutinis_vidurkis < 5); }), grupe_vector.end());
+    grupe_vector.assign(grupe_vector.begin(), itt);
+    grupe_vector.resize(grupe_vector.size());
+
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end - start;
-    time_vector.push_back(diff.count());
 
-    auto start1 = std::chrono::high_resolution_clock::now();
-    list<studentas>::iterator it = grupe_list.begin();
-    grupe_list.sort([](studentas a, studentas b) {return a.galutinis_vidurkis < b.galutinis_vidurkis; });
-    while (it != grupe_list.end())
-    {
-        if ((*it).galutinis_vidurkis < 5.00)
+    laikas_vector.push_back(diff.count());
+}
+
+void rusiavimasList2(list <studentas>& grupe_list, list <studentas>& vargsiukai_list1, vector<double>& laikas_list, char& atsakymas)
+{
+    auto start = std::chrono::high_resolution_clock::now();
+    list<studentas>::iterator it;
+
+    std::partition(grupe_list.begin(), grupe_list.end(), [](studentas a)
         {
-            vargsiukai_list_2.push_back(*it);
-            it = grupe_list.erase(it);
-        }
-        else ++it;
+            return a.galutinis_vidurkis > 5;
+        });
+
+    auto itt = std::partition_point(grupe_list.begin(), grupe_list.end(), [](studentas a)
+        {
+            return a.galutinis_vidurkis > 5;
+        });
+
+    for (it = itt; it != grupe_list.end(); it++)
+    {
+        vargsiukai_list1.push_back(*it);
     }
-    auto end1 = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff1 = end1 - start1;
-    time_list.push_back(diff1.count());
+    grupe_list.assign(grupe_list.begin(), itt);
+    grupe_list.resize(grupe_list.size());
+
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end - start;
+
+    laikas_list.push_back(diff.count());
 }
