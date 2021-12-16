@@ -25,5 +25,4 @@ Atlikti darbai:
 * išmatuojame veikimo spartą: duomenų nuskaitymą iš failų ir studentų rūšiąvimą į dvi grupes
 * palagynam spartą naudojant vector (0.4 versijoje), o šioje versijoje list
 * testavimo paremetrai:CPU-Intel(R) Core(TM) i3-7100U CPU @ 2.40GHz   2.40 GHz, įdiegta RAM-8,00 GB, HDD- 932 GB
-![05](https://user-images.githubusercontent.com/90273563/145468569-2ccbc2a9-f4e0-47c8-8e6d-dbf91a39c082.png)
-
+![05 ](https://user-images.githubusercontent.com/90273563/146429270-b4dc5661-be5c-4822-ba36-8b89b1f84385.png)
