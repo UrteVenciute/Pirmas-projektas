@@ -31,7 +31,7 @@ Atlikti darbai:
 * Bendro studentų konteinerio (vector ir list) skaidymas panaudojant tik vieną naują konteinerį: "vargšiukai". Tokiu būdu, jei studentas yra vargšiukas, jį turime perkeliame į naująjį "vargšiukų" konteinerį ir ištriname iš bendro studentai konteinerio. Po šio žingsnio studentai konteineryje liks vien tik kietiakai. Atminties atveju tai efektyviau.
 * Atliekame pirmą ir antrą strategijas ir išvedame jų spartą.
 * Įdiegimo instrukcija: CMake konfigūravimas sukuria projekto kūrimo sistemą. Tai prilygsta cmake.exe iškvietimui iš komandinės eilutės. „Visual Studio“ naudoja CMake konfigūracijos failą, kad paskatintų CMake generavimą ir kūrimą. Kai atliekame reikšmingus CMake konfigūracijos failo arba CMakeLists.txt failo pakeitimus, „Visual Studio“ automatiškai vykdo CMake konfigūravimo veiksmą. Galite rankiniu būdu iškviesti konfigūraciją įrankių juostoje pasirinkę Projektas > Konfigūruoti talpyklą. Taip pat galite pakeisti konfigūracijos nuostatas skiltyje Įrankiai > Parinktys > CMake > Bendra.
-* 2 strategijai. Programos efektyvumą pastiprinau su algoritmais assign, resize
+* 2 strategijai. Programos efektyvumą pastiprinau su algoritmais assign, resize. 11 kartų surrūšiuojama greičiau
 ![2021-12-16 (3)](https://user-images.githubusercontent.com/90273563/146432159-b594d64c-d257-400a-8066-91294ecadfcd.png)
 
 
